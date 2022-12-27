@@ -2,6 +2,8 @@ let todosCont = document.querySelector('.todosCont');
 let submitTodo = document.querySelector('.submitTodo'); 
 let todoInput = document.querySelector('.todoInput'); 
 let removeTodo = document.querySelector('.removeTodo'); 
+let reloadBtn = document.querySelector('.reloadBtn'); 
+
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getDatabase, set, get, update, remove, ref, child } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
@@ -103,7 +105,11 @@ function removeData() {
   }
 }
 
+function reloadPage() {
+  location.reload(); 
+}
 getData(); 
 
 submitTodo.addEventListener('click', setData ); 
 removeTodo.addEventListener('click', removeData); 
+reloadBtn.addEventListener('click', reloadPage)
