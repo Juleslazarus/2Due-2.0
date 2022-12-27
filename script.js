@@ -70,6 +70,7 @@ function setData(todoItem) {
     todoTextItem.textContent = todoInput.value; 
     todosCont.appendChild(todoItem); 
     todoItem.appendChild(todoTextItem)
+    todoInput.value = ''; 
     console.log('data added success')
   })
   .catch((err) => {
