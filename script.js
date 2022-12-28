@@ -3,7 +3,7 @@ let submitTodo = document.querySelector('.submitTodo');
 let todoInput = document.querySelector('.todoInput'); 
 let removeTodo = document.querySelector('.removeTodo'); 
 let reloadBtn = document.querySelector('.reloadBtn'); 
-
+todoInput.select(); 
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getDatabase, set, get, update, remove, ref, child } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
@@ -68,6 +68,7 @@ function removeData() {
   if (todoInput.value === '') {
     remove(ref(db, 'todo/'))
     .then(() => {
+      location.reload(); 
       console.log('removed all data')
     })
     .catch((err) => {
@@ -94,3 +95,12 @@ getData();
 submitTodo.addEventListener('click', setData ); 
 removeTodo.addEventListener('click', removeData); 
 reloadBtn.addEventListener('click', reloadPage)
+todoInput.addEventListener('keydown', (e) => {
+  console.log(e); 
+  if(e.key === 'Enter') {
+    // e.preventDefault(); 
+    document.getElementById('submit').click(); 
+  } else if (e.key === 'Escape') {
+    document.getElementById('remove').click(); 
+  }
+})

@@ -70,6 +70,7 @@ body {
         .todoItem {
             background: $primeColor; 
             padding: 1em;
+            word-wrap: break-word;
         }
     }
     .inputCont {
@@ -81,7 +82,8 @@ body {
         button {
             padding: .5vh; 
             background: $primeColor; 
-            border-radius: 100%; 
+            // border-radius: 100%; 
+            border-radius: 10px; 
             color: white; 
             font-weight: bold; 
             &:active {
@@ -91,10 +93,10 @@ body {
         .submitTodo {
             padding: .5em 1em; 
             font-weight: bold; 
-            font-size: 20px; 
+            font-size: 25px; 
         }
         .removeTodo {
-            padding: .5em 1em; 
+            padding: 1em 1.3em; 
             font-size: 20px; 
             &:active {
                 background: rgba(148, 96, 104, 0.671); 
@@ -119,6 +121,9 @@ body {
 @media all and (max-width: 700px) {
     .todoInput {
         width: 45vw !important; 
+    }
+    .todoCont {
+        height: 45em;   
     }
 }
 

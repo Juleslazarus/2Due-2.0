@@ -76,6 +76,7 @@ body {
 .todoCont .todosCont .todoItem {
   background: rgba(189, 30, 56, 0.671);
   padding: 1em;
+  word-wrap: break-word;
 }
 
 .todoCont .inputCont {
@@ -88,7 +89,7 @@ body {
 .todoCont .inputCont button {
   padding: .5vh;
   background: rgba(189, 30, 56, 0.671);
-  border-radius: 100%;
+  border-radius: 10px;
   color: white;
   font-weight: bold;
 }
@@ -100,11 +101,11 @@ body {
 .todoCont .inputCont .submitTodo {
   padding: .5em 1em;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .todoCont .inputCont .removeTodo {
-  padding: .5em 1em;
+  padding: 1em 1.3em;
   font-size: 20px;
 }
 
@@ -130,6 +131,9 @@ body {
 @media all and (max-width: 700px) {
   .todoInput {
     width: 45vw !important;
+  }
+  .todoCont {
+    height: 45em;
   }
 }
 
