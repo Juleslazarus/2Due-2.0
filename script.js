@@ -96,7 +96,6 @@ submitTodo.addEventListener('click', setData );
 removeTodo.addEventListener('click', removeData); 
 reloadBtn.addEventListener('click', reloadPage)
 todoInput.addEventListener('keydown', (e) => {
-  console.log(e); 
   if(e.key === 'Enter') {
     // e.preventDefault(); 
     document.getElementById('submit').click(); 
