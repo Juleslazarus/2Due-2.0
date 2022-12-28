@@ -21,26 +21,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(); 
 
-// set(ref(db, 'todo/'), todoInput.value)
 
-// let dbRef = ref(getDatabase()); 
-// get(child(dbRef, 'todo/')).then((snapshot) => {
-//   if(snapshot.exists()) {
-//     let todo_items = []; 
-//     snapshot.forEach((todo) => {
-//       todo_items.push({...todo, name: todo.val()})
-//     })
-//     let todoItem = document.createElement('h1')
-//     todoItem.textContent = todo_items[];
-//     console.log(snapshot.val()); 
-//     console.log(todo_items)
-
-//   } else {
-//     console.log('no data available'); 
-//   }
-// }).catch((err) => {
-//   console.log(err.message); 
-// })
 let todoTextItem; 
 let todoItem; 
 function getData(todoItem) {

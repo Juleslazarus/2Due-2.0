@@ -9,11 +9,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e48282;
+  background: rgba(97, 0, 16, 0.842);
 }
 
 ::-webkit-scrollbar-button {
-  background: rgba(255, 121, 141, 0.671);
+  background: rgba(189, 30, 56, 0.671);
   height: 5px;
 }
 
@@ -22,45 +22,50 @@
 }
 
 body {
-  background-image: linear-gradient(to bottom, rgba(241, 177, 188, 0.671), rgba(255, 245, 247, 0.966));
-  height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(51, 47, 99, 0.856), rgba(61, 23, 30, 0.966));
   display: grid;
+  height: 100vh;
   justify-content: center;
+  overflow: hidden;
+}
+
+.titleCont {
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(189, 30, 56, 0.671);
+  box-shadow: 5px 5px 600px 1px rgba(0, 0, 0, 0.486);
+}
+
+.titleCont h1 {
+  font-size: 2em;
+}
+
+.titleCont p {
+  font-size: .8em;
 }
 
 .todoCont {
-  min-height: 45em;
-  background: rgba(191, 145, 226, 0.575);
-  width: 40em;
+  height: 50em;
+  background: #796b85;
+  width: 50vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2em;
+  margin-top: 1em;
   border-radius: 10px;
-}
-
-.todoCont .titleCont {
-  margin-bottom: auto;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-}
-
-.todoCont .titleCont h1 {
-  font-size: 2em;
-}
-
-.todoCont .titleCont p {
-  font-size: .8em;
+  box-shadow: 5px 5px 600px 1px rgba(0, 0, 0, 0.486);
+  margin-bottom: 5em;
 }
 
 .todoCont .todosCont {
   display: flex;
   flex-direction: column;
-  background: #f8e7ea;
-  height: 35em;
-  width: 90%;
+  background: rgba(187, 174, 177, 0.192);
+  height: 50em;
+  width: 100%;
   border-radius: 5px;
   color: white;
   font-weight: bold;
@@ -69,25 +74,38 @@ body {
 }
 
 .todoCont .todosCont .todoItem {
-  background: rgba(182, 119, 129, 0.671);
+  background: rgba(189, 30, 56, 0.671);
   padding: 1em;
 }
 
+.todoCont .inputCont {
+  height: 4em;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 1vw;
+}
+
 .todoCont .inputCont button {
-  padding: .5em;
-  background: rgba(245, 167, 180, 0.671);
+  padding: .5vh;
+  background: rgba(189, 30, 56, 0.671);
   border-radius: 100%;
   color: white;
   font-weight: bold;
-  margin-left: .todoCont .inputCont button;
 }
 
-.todoCont .inputCont button :active {
+.todoCont .inputCont button:active {
   background: rgba(148, 96, 104, 0.671);
+}
+
+.todoCont .inputCont .submitTodo {
+  padding: .5em 1em;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .todoCont .inputCont .removeTodo {
   padding: .5em 1em;
+  font-size: 20px;
 }
 
 .todoCont .inputCont .removeTodo:active {
@@ -95,15 +113,28 @@ body {
 }
 
 .todoCont .inputCont .todoInput {
-  width: 33em;
+  width: 32vw;
   border-radius: 5px;
   padding: 1em;
 }
 
 .reloadBtn {
   padding: .5em;
-  background: rgba(245, 167, 180, 0.671);
+  background: rgba(189, 30, 56, 0.671);
   color: white;
   font-weight: bold;
   border-radius: 5px;
+  margin-top: .5em;
+}
+
+@media all and (max-width: 700px) {
+  .todoInput {
+    width: 45vw !important;
+  }
+}
+
+@media all and (max-width: 1150px) {
+  .todoCont {
+    width: 85vw;
+  }
 }
