@@ -29,32 +29,53 @@ function getData(todoItem) {
   
   get(child(dbRef, 'todo/')) 
   .then((todo_items) => {
+    //? this helps individually grab todo items from db
     todo_items.forEach((todoNode) => {
       let todoArray = []; 
-      todoArray.push(todoNode.val())
-      todoItem = document.createElement('div'); 
-      todoItem.classList.add('todoItem'); 
+      todoArray.push(todoNode.val()) //? sets the response from the data base to an array for each node
       todoTextItem = document.createElement('h1'); 
-      todoTextItem.textContent = todoArray[0]; 
-      todoItem.appendChild(todoTextItem)
-      todosCont.appendChild(todoItem); 
-      console.log(todoArray);  
+      todoTextItem.classList.add('todoItem'); 
+      todoTextItem.textContent = todoArray[0]; //? creates DOM element using the db response from above
+      todosCont.appendChild(todoTextItem)
+      
+      todoTextItem.addEventListener('click', (e) => {
+        console.log(e);
+        let todoNode = e.target.textContent; 
+        todoInput.value = todoNode; 
+        removeData(); 
+      })
 
+      //? 
     })
   })
 }
 
+
+// function grabTodoRem() {
+//   remove(ref(db, 'todo/' + todoItem.)) 
+//   .then(() => {
+//     console.log('item removed'); 
+//   })
+//   .catch((err) => {
+//     console.log(err.message); 
+//   })
+// }
+
 function setData(todoItem) {
   set(ref(db, 'todo/' + todoInput.value), todoInput.value)
   .then(() => {
-    todoItem = document.createElement('div'); 
-    todoItem.classList.add('todoItem'); 
     todoTextItem = document.createElement('h1'); 
+    todoTextItem.classList.add('todoItem'); 
     todoTextItem.textContent = todoInput.value; 
-    todosCont.appendChild(todoItem); 
-    todoItem.appendChild(todoTextItem)
+    todosCont.appendChild(todoTextItem); 
     todoInput.value = ''; 
     console.log('data added success')
+     todoTextItem.addEventListener('click', (e) => {
+        console.log(e);
+        let todoNode = e.target.textContent; 
+        todoInput.value = todoNode; 
+        removeData(); 
+      })
   })
   .catch((err) => {
     console.log(err.message); 
@@ -62,6 +83,7 @@ function setData(todoItem) {
 }
 function selectData() {
   todoInput.value = todoTextItem.textContent; 
+  removeDataSelected(); 
 }
 
 function removeData() {
@@ -86,6 +108,16 @@ function removeData() {
     })
   }
 }
+function removeDataSelected() {
+  remove(ref(db, 'todo/' + todoInput.value))
+  .then(() => {
+    location.reload(); 
+    console.log('selected item removed successfully'); 
+  })
+  .catch((err) => {
+    console.log(err.message); 
+  })
+}
 
 function reloadPage() {
   location.reload(); 
@@ -98,6 +130,7 @@ reloadBtn.addEventListener('click', reloadPage)
 todoInput.addEventListener('keydown', (e) => {
   if(e.key === 'Enter') {
     // e.preventDefault(); 
+    console.log(e); 
     document.getElementById('submit').click(); 
   } else if (e.key === 'Escape') {
     document.getElementById('remove').click(); 

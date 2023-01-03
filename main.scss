@@ -67,10 +67,22 @@ body {
         font-weight: bold; 
         overflow-y: scroll; 
         gap: .5em;
+        h1 {
+            transition: all .3s; 
+            &:hover {
+                background: $secColor; 
+                text-decoration: line-through black 3px;
+            }
+        }
         .todoItem {
+            display: flex;
+            flex-direction: column;
             background: $primeColor; 
             padding: 1em;
             word-wrap: break-word;
+            .todoTextItem {
+                margin-right: auto; 
+            }
         }
     }
     .inputCont {
@@ -130,5 +142,11 @@ body {
 @media all and (max-width: 1150px) {
     .todoCont {
         width: 85vw; 
+    }
+}
+
+.todoItem {
+    &:hover {
+        background: $secColor;
     }
 }

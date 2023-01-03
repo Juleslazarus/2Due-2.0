@@ -73,10 +73,25 @@ body {
   gap: .5em;
 }
 
+.todoCont .todosCont h1 {
+  transition: all .3s;
+}
+
+.todoCont .todosCont h1:hover {
+  background: rgba(97, 0, 16, 0.842);
+  text-decoration: line-through black 3px;
+}
+
 .todoCont .todosCont .todoItem {
+  display: flex;
+  flex-direction: column;
   background: rgba(189, 30, 56, 0.671);
   padding: 1em;
   word-wrap: break-word;
+}
+
+.todoCont .todosCont .todoItem .todoTextItem {
+  margin-right: auto;
 }
 
 .todoCont .inputCont {
@@ -141,4 +156,8 @@ body {
   .todoCont {
     width: 85vw;
   }
+}
+
+.todoItem:hover {
+  background: rgba(97, 0, 16, 0.842);
 }
